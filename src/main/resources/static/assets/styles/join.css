@@ -1,0 +1,20 @@
+.member-wrap > .txt-wrap {
+  border: 0.0625rem solid #ebebeb;
+  border-radius: 0.625rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+.member-wrap > .txt-wrap > a {
+  padding: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.member-wrap > ul {
+  color: #444444;
+  list-style-position: inside;
+  list-style-type: circle;
+}
+
+/*# sourceMappingURL=join.css.map */

@@ -1,0 +1,34 @@
+### Java / Maven (빌드 결과물 제외) ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.log
+
+### IntelliJ IDEA (개인 설정 파일 제외 - 중요!) ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+### Eclipse / STS (이클립스 설정 제외) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+### VS Code (VS Code 설정 제외) ###
+.vscode/
+
+### Mac / Windows (시스템 파일 제외) ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Spring Boot / Misc ###
+HELP.md
+logs/
+run_daily_error.txt

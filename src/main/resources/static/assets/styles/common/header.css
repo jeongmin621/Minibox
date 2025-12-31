@@ -1,0 +1,78 @@
+#header {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: rgba(0, 0, 0, 0.6274509804);
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  color: #ffffff;
+  min-width: 68.75rem;
+  padding: 0.8rem 0.1rem 0.5rem 0.1rem;
+  position: absolute;
+}
+#header > .ci {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+#header > .ci > a {
+  display: block;
+  width: 8.75rem;
+  height: 2.9375rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+}
+#header > .content-wrap-header {
+  width: 68.75rem;
+  margin: 0 auto;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.4rem;
+}
+#header > .content-wrap-header > .util {
+  width: 100%;
+  color: #888888;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 0.8rem;
+  gap: 1.25rem;
+}
+#header > .content-wrap-header > .util > li > a:hover {
+  text-decoration: underline;
+}
+#header > .content-wrap-header > .menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+#header > .content-wrap-header > .menu > .menu-wrap {
+  gap: 4rem;
+}
+#header > .content-wrap-header > .menu > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#header > .content-wrap-header > .menu > ul > .item-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=header.css.map */

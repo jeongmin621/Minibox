@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>미니박스</title>
+    <link rel="shotcut icon" th:href="@{'/assets/images/favicon.ico'}">
+    <link rel="stylesheet" th:href="@{'/assets/styles/common.css'}" type="text/css">
+    <link rel="stylesheet" th:href="@{'/assets/styles/index.css'}" type="text/css">
+    <script defer th:src="@{'/assets/scripts/common.js'}" type="text/javascript"></script>
+</head>
+<body>
+
+<th:block th:replace="~{fragments/common-header-white.html :: commonCover}"></th:block>
+<th:block th:replace="~{fragments/common-header-white.html :: commonHeaderWhite}"></th:block>
+<th:block th:replace="~{fragments/common-header-white.html :: commonLogin}"></th:block>
+
+<section id="main">
+    <div class="bg-cover">
+        <img src="" alt="">
+    </div>
+    <div class="content-wrap">
+        <div>
+            <button>박스오피스</button>
+            <a href="">더 많은 영화 보기 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANklEQVR4nGNgGFHgPxSMWoAT/B8NIkLg/8gOov9UBgx0t4AY8J8SzaMWUAX8H42D4R9EgxIAADOHLuA9EPgjAAAAAElFTkSuQmCC" alt="plus"></a>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fkiramonthly.com%2F677&psig=AOvVaw3kMy6eaAThIjoIh_91C6Ey&ust=1734161976944000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjIs_iepIoDFQAAAAAdAAAAABAJ" alt="">
+                    </a>
+                    <div>
+                        <button>749</button>
+                        <a href=""><button class="--button -gblue">예매</button></a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="benefit">
+    <div class="content-wrap">
+        <h2>혜택</h2>
+    </div>
+</section>
+
+<section id="curation">
+    <div class="content-wrap">
+        <h2>큐레이션</h2>
+    </div>
+</section>
+
+<section id="info">
+    <div class="content-wrap">
+        <h2>메가박스 안내</h2>
+    </div>
+</section>
+
+<div class="content-wrap"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<th:block th:replace="~{fragments/common-footer.html :: commonFooter}"></th:block>
+
+</body>
+</html>

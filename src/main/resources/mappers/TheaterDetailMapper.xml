@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmk.movie.mappers.TheaterDetailMapper">
+    <insert id="insertTheaterDetail"
+            useGeneratedKeys="true"
+            keyColumn="detail_code"
+            keyProperty="detail_code" parameterType="com.jmk.movie.entities.TheaterDetailEntity">
+        INSERT INTO `mega`.`theaters_detail` (`detail_code`, `content`, `title`, `created_at`, `updated_at`, `deleted_at`)
+        VALUES (#{detailCode}, #{content}, #{title}, #{createdAt}, #{updatedAt}, #{deletedAt})
+    </insert>
+    <update id="update">
+        UPDATE `mega`.`theaters_detail`
+        SET `title` = #{title},
+            `content` = #{content}
+        WHERE detail_code = #{detailCode}
+    </update>
+    <select id="selectTheaterDetail"
+            resultType="com.jmk.movie.entities.TheaterDetailEntity">
+        SELECT `detail_code` AS `detailCode`,
+               `content` AS `content`,
+               `created_at` AS `createdAt`,
+               `updated_at` AS `updatedAt`,
+               `deleted_at` AS `deletedAt`,
+               `title` AS `title`
+        FROM `mega`.`theaters_detail`
+        WHERE `detail_code` = #{detailCode}
+
+    </select>
+    <select id="selectByDetailCode" resultType="com.jmk.movie.entities.TheaterDetailEntity">
+        SELECT `detail_code` AS `detailCode`,
+               `title` AS `title`,
+               `content` AS `content`,
+               `created_at` AS `createdAt`,
+               `updated_at` AS `updatedAt`,
+               `deleted_at` AS `deletedAt`
+        FROM `mega`.`theaters_detail`
+        WHERE `detail_code` = #{detailCode}
+    </select>
+
+
+    <insert id="insertDetail" parameterType="com.jmk.movie.entities.TheaterDetailEntity">
+        INSERT INTO `mega`.`theaters_detail` (`detail_code`, `title`, `content`, `created_at`, `updated_at`, `deleted_at`)
+        VALUES (#{detailCode}, #{title}, #{content}, #{createdAt}, #{updatedAt}, #{deletedAt})
+    </insert>
+
+    <update id="updatedTheaterBrchDetail">
+        UPDATE `mega`.`theaters_detail`
+        SET `title` = #{title}, `content` = #{content}, `updated_at` = #{updatedAt}
+        WHERE `detail_code` = #{detailCode}
+    </update>
+</mapper>

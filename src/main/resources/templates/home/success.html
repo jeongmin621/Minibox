@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메가박스</title>
+    <link rel="shotcut icon" th:href="@{'/assets/images/favicon.ico'}">
+    <link rel="stylesheet" th:href="@{'/assets/styles/common.css'}" type="text/css">
+    <link rel="stylesheet" th:href="@{'/assets/styles/register-com.css'}" type="text/css">
+
+</head>
+<body>
+
+<div class="member-wrap">
+    <h1>
+        <a th:href="@{'/'}"><img th:src="@{'/assets/images/logo_new1.png'}" alt=""></a>
+    </h1>
+    <div class="members">
+        <ul>
+            <li>STEP1. 본인인증</li>
+            <li>STEP2. 약관동의</li>
+            <li>STEP3. 정보입력</li>
+            <li class="on">STEP4. 가입완료</li>
+        </ul>
+    </div>
+
+    <p>회원가입해 주셔서 감사합니다.</p>
+    <div>입력하신 이메일로 계정을 인증할 수 있는 링크를 전송하였습니다.</div>
+    <div><b>계정 인증 후 로그인할 수 있으며,</b> 해당 링크는 24시간 동안만 유효하니 유의해 주세요.</div>
+
+    <div class="button-wrap">
+        <a th:href="@{'/'}"><button class="--button -purple">메인으로</button></a>
+    </div>
+
+</div>
+
+</body>
+</html>

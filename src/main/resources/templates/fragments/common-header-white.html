@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<div class="cover" id="cover" th:fragment="commonCover"></div>
+
+<header id="header" th:fragment="commonHeaderWhite">
+    <div class="ci">
+        <a th:href="@{'/'}"><img th:src="@{'/assets/images/logo_new1.png'}" alt=""></a>
+    </div>
+    <div class="content-wrap-header">
+        <ul class="util">
+            <li><a href="">VIP LOUNGE</a></li>
+            <li><a href="">멤버십</a></li>
+            <li><a href="">고객센터</a></li>
+            <li class="spring"></li>
+            <li th:if="${session.user == null}"><a class="login-button" href="#">로그인</a></li>
+            <li th:if="${session.user == null}"><a th:href="@{'/join'}">회원가입</a></li>
+            <li th:if="${session.user != null}" th:text="${session.user.getNickname()}"></li>
+            <li th:if="${session.user != null}"><a class="logout" th:href="@{'/logout'}">로그아웃</a></li>
+            <li><a href="">빠른예매</a></li>
+        </ul>
+        <div class="menu">
+            <ul>
+                <li class="item-wrap">
+                    <a href=""><img th:src="@{'/assets/images/common/header/ico-sitemap.png'}" alt=""></a>
+                    <a href=""><img th:src="@{'/assets/images/common/header/ico-search.png'}" alt=""></a>
+                </li>
+            </ul>
+            <ul class="menu-wrap">
+                <li><a th:href="@{'/movie'}"><img th:src="@{'/assets/images/common/header/gnb-txt-movie.png'}" alt=""></a></li>
+                <li><a href=""><img th:src="@{'/assets/images/common/header/gnb-txt-reserve.png'}" alt=""></a></li>
+                <li><a th:href="@{'/theater/list'}"><img th:src="@{'/assets/images/common/header/gnb-txt-theater.png'}" alt=""></a></li>
+            </ul>
+            <span class="spring"></span>
+            <ul class="menu-wrap">
+                <li><a href=""><img th:src="@{'/assets/images/common/header/gnb-txt-event.png'}" alt=""></a></li>
+                <li><a href=""><img th:src="@{'/assets/images/common/header/gnb-txt-store.png'}" alt=""></a></li>
+                <li><a href=""><img th:src="@{'/assets/images/common/header/gnb-txt-benefit.png'}" alt=""></a></li>
+            </ul>
+            <ul>
+                <li class="item-wrap">
+                    <a href=""><img th:src="@{'/assets/images/common/header/ico-schedule.png'}" alt=""></a>
+                    <a href=""><img th:src="@{'/assets/images/common/header/ico-mymega.png'}" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<form id="login-form" class="login-form" th:fragment="commonLogin">
+    <div class="login-top">
+        <h3>로그인</h3>
+        <img class="close" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nO3ZTQqDMBCGYU/RSq9Yj1uwPc1bRBcirWicv4T5Vm6UeVCTGdJ1mUwm00yAJ9AHqKOfaim9eWDO6IlhRkw1TBlKHnADXssDPsBDpdL9Gu6rGt7FNXhikEJ4YpBGeGDQQlhi0EZYYMwQmhhzhAbGDSGJcUdIYMIgrmDCIUowYRFnMOERRzDVIPYw1SH+zBDj5tp9ULvyZup6E+tsPiezEUA0TXxa/PixI4zNp7K3OlWD4cASGx7DiX0iLIaCzS4chgs7dhgMAm2HOwbB3skNg0IDaI5BsYs1w2DQiqONsZwn0MJ4DEVIYzwnO6QwEcZTJDDNHL01cxiayWQyXcR8AfkY5euVO0c7AAAAAElFTkSuQmCC" alt="delete-sign--v1">
+    </div>
+    <div class="login-main">
+        <label>
+            <input name="email" class="input" placeholder="이메일" type="text">
+        </label>
+        <label>
+            <input name="password" class="input" placeholder="비밀번호" type="password">
+        </label>
+        <div>
+            <label class="check-label">
+                <input class="check" type="checkbox">
+                <span>아이디 저장</span>
+            </label>
+        </div>
+        <button class="--button -purple">로그인</button>
+
+        <div class="link">
+            <a th:href="@{'/user-find'}">ID/PW 찾기</a>
+            <a th:href="@{'/join'}">회원 가입</a>
+<!--            <a href="">비회원 예매확인</a>-->
+        </div>
+    </div>
+</form>
+
+
+</html>

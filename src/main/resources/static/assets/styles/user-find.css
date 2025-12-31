@@ -1,0 +1,12 @@
+.member-wrap > form > table {
+  width: 100%;
+}
+.member-wrap > form > table > tbody > tr > th, .member-wrap > form > table > tbody > tr td {
+  padding: 0.5rem 0.5rem;
+}
+.member-wrap > form > table > tbody > tr > th {
+  background-color: #f7f8f9;
+  text-align: start;
+}
+
+/*# sourceMappingURL=user-find.css.map */

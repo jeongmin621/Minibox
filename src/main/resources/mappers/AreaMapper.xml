@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmk.movie.mappers.AreaMapper">
+    <insert id="insertArea"
+            useGeneratedKeys="true"
+            keyProperty="code"
+            keyColumn="code"
+            parameterType="com.jmk.movie.entities.AreaEntity">
+        INSERT INTO `mega`.`areas` (`code`, `name`)
+        VALUES (#{code}, #{name})
+    </insert>
+
+    <insert id="insertTheater"
+            useGeneratedKeys="true"
+            keyProperty="name"
+            keyColumn="name"
+            parameterType="com.jmk.movie.entities.TheaterEntity">
+        INSERT INTO `mega`.`theaters` (`area_code`, `name`, `brch_code`)
+        VALUES (#{areaCode}, #{name}, #{brchCode})
+    </insert>
+
+    <select id="selectAreas" resultType="com.jmk.movie.entities.AreaEntity">
+        SELECT `code` AS `code`,
+               `name` AS `name`
+        FROM `mega`.`areas`
+    </select>
+
+    <select id="selectTheaters" resultType="com.jmk.movie.entities.TheaterEntity">
+        SELECT `area_code` AS `areaCode`,
+               `name`      AS `name`,
+               `brch_code` AS `brchCode`
+        FROM `mega`.`theaters`
+    </select>
+
+</mapper>

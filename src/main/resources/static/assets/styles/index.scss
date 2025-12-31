@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+body {
+  margin-top: 0;
+}
+
+#header {
+  background-color: #ffffff;
+}
+
+#main {
+  background-image: url("https://blog.kakaocdn.net/dn/bmIwxA/btrVE1Ql6YL/kfImMiXEd19Kch9ziopPj0/img.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #666666a0;
+  padding-top: var(--header-height);
+  height: 57.5rem;
+  box-sizing: border-box;
+  position: relative;
+
+  > .bg-cover {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #030115B3;
+    backdrop-filter: blur(2rem);
+    position: absolute;
+  }
+
+  > .content-wrap {
+    background-color: #ebebeb;
+    position: relative;
+    height: 100%;
+  }
+
+}
+
+#benefit {
+  height: 52.75rem;
+  box-sizing: border-box;
+
+}
+
+#curation {
+  height: 52.5rem;
+  box-sizing: border-box;
+  background-color: #252451;
+}
+
+#info {
+  height: 40rem;
+  box-sizing: border-box;
+
+}

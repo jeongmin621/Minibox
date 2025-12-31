@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jmk.movie.mappers.MovieMapper">
+    <insert id="insertMovieCd" parameterType="com.jmk.movie.entities.MovieEntity">
+        INSERT INTO `mega`.`boxOffice` (`movieCd`, `movieNm`, `rank`, `openDt`, `audiAcc`)
+        VALUES (#{movieCd}, #{movieNm}, #{rank}, #{openDt}, #{audiAcc})
+        ON DUPLICATE KEY UPDATE `movieCd` = values(`movieCd`),
+                                `movieNm` = values(`movieNm`),
+                                `openDt`  = values(`openDt`),
+                                `audiAcc` = values(`audiAcc`)
+    </insert>
+
+    <select id="findByMovieCd" resultType="com.jmk.movie.entities.MovieEntity">
+        SELECT `movieCd` AS `movieCd`,
+               `movieNm` AS `movieNm`,
+               `rank`    AS `rank`,
+               `openDt`  AS `openDt`,
+               `audiAcc` AS `audiAcc`
+        FROM `mega`.`boxOffice`
+        WHERE `movieCd` = #{movieCd}
+    </select>
+
+    <select id="selectAllMovieCds" resultType="java.lang.String">
+        SELECT `movieCd` AS `movieCd`
+        FROM `mega`.`boxOffice`
+        ORDER BY `rank`
+        LIMIT 10
+    </select>
+    <select id="selectAllMovieCdsAtMovies" resultType="java.lang.String">
+        SELECT `movieCd` AS `movieCd`
+        FROM `mega`.`movies`
+    </select>
+
+    <select id="selectAllMovieNms" resultType="java.lang.String">
+        SELECT `movieNm` AS `movieNm`
+        FROM `mega`.`boxOffice`
+        LIMIT 10
+    </select>
+
+    <select id="selectAllOpenDts" resultType="java.lang.String">
+        SELECT `openDt` AS `openDt`
+        FROM `mega`.`boxOffice`
+        LIMIT 10
+    </select>
+
+    <select id="selectMoviesByRank" resultType="com.jmk.movie.entities.MovieBoxOffice">
+        SELECT `rank`         AS `rank`,
+               `audiAcc`      AS `audiAcc`,
+               `id`           AS `movie_id`,
+               b.`movieCd`    AS `movieCd`,
+               b.`movieNm`    AS `movieNm`,
+               `movieNmEn`    AS `movieNmEn`,
+               `showTypes`    AS `showTypes`,
+               `directors`    AS `directors`,
+               `actors`       AS `actors`,
+               `genres`       AS `genres`,
+               `showTm`       AS `showTm`,
+               `watchGradeNm` AS `watchGradeNm`,
+               b.`openDt`       AS `openDt`,
+               `prdtStatNm`   AS `prdtStatNm`,
+               `typeNm`       AS `typeNm`,
+               `nationNm`     AS `nationNm`,
+               `poster`       AS `poster`,
+               `content`      AS `content`
+        FROM `mega`.`boxOffice` AS b
+                 JOIN `mega`.`movies` AS m
+                      ON b.movieCd = m.movieCd
+        ORDER BY b.`rank`
+    </select>
+
+    <select id="selectAllPosters" resultType="java.lang.String">
+        SELECT `poster` AS `poster`
+        FROM `mega`.`movies` AS m
+                 JOIN `mega`.`boxOffice` AS b
+                      ON b.movieCd = m.movieCd
+        ORDER BY b.`rank`
+        LIMIT 10
+    </select>
+
+    <select id="findAll" resultType="com.jmk.movie.component.Movie">
+        SELECT `id` AS `id`,
+               `movieNm` AS `movieNm`,
+               `poster` AS `poster`
+        FROM `mega`.`movies`
+    </select>
+
+    <select id="findByMovieNm" resultType="com.jmk.movie.component.Movie">
+        SELECT `id` AS `id`,
+               `movieNm` AS `movieNm`,
+               `poster` AS `poster`
+        FROM `mega`.`movies`
+        WHERE `movieNm` = #{movieNm}
+    </select>
+
+    <select id="selectComingSoonMovies" resultType="com.jmk.movie.entities.MovieDetailEntity">
+        SELECT `id`           AS `id`,
+               `movieCd`      AS `movieCd`,
+               `movieNm`      AS `movieNm`,
+               `movieNmEn`    AS `movieNmEn`,
+               `showTypes`    AS `showTypes`,
+               `directors`    AS `directors`,
+               `actors`       AS `actors`,
+               `genres`       AS `genres`,
+               `showTm`       AS `showTm`,
+               `watchGradeNm` AS `watchGradeNm`,
+               `openDt`       AS `openDt`,
+               `prdtStatNm`   AS `prdtStatNm`,
+               `typeNm`       AS `typeNm`,
+               `nationNm`     AS `nationNm`,
+               `poster`       AS `poster`,
+               `content`      AS `content`
+        FROM `mega`.`movies`
+        WHERE `prdtStatNm` NOT LIKE '개봉';
+    </select>
+
+    <select id="selectMoviePoster" resultType="java.lang.String">
+        SELECT `poster` AS `poster`
+        FROM `mega`.`movies`
+        WHERE `movieCd` = #{movieCd}
+    </select>
+
+    <select id="selectFilmMovies" resultType="com.jmk.movie.entities.MovieDetailEntity">
+        SELECT `id`           AS `id`,
+               `movieCd`      AS `movieCd`,
+               `movieNm`      AS `movieNm`,
+               `movieNmEn`    AS `movieNmEn`,
+               `showTypes`    AS `showTypes`,
+               `directors`    AS `directors`,
+               `actors`       AS `actors`,
+               `genres`       AS `genres`,
+               `showTm`       AS `showTm`,
+               `watchGradeNm` AS `watchGradeNm`,
+               `openDt`       AS `openDt`,
+               `prdtStatNm`   AS `prdtStatNm`,
+               `typeNm`       AS `typeNm`,
+               `nationNm`     AS `nationNm`,
+               `poster`       AS `poster`,
+               `content`      AS `content`
+        FROM `mega`.`movies`
+        WHERE `showTypes` LIKE '%필름%';
+    </select>
+</mapper>
