@@ -6,19 +6,27 @@
 ## 🛠 Tech Stack
 
 ### Backend
-<img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=Java&logoColor=white"/> <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=Spring Boot&logoColor=white"/> <img src="https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=MyBatis&logoColor=white"/> <img src="https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=Apache Maven&logoColor=white"/>
+![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![MyBatis](https://img.shields.io/badge/MyBatis-000000?style=flat-square&logo=mybatis&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white)
 
 ### Frontend
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/Thymeleaf-005F0F?style=flat-square&logo=Thymeleaf&logoColor=white"/>
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F?style=flat-square&logo=thymeleaf&logoColor=white)
 
 ### Database & Tools
-<img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white"/> <img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=flat-square&logo=IntelliJ IDEA&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000?style=flat-square&logo=intellijidea&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 ---
 
 ## 👥 팀 구성 및 역할 (Team Roles)
 
-총 3명의 팀원이 개발하였으며, 저는 **영화 데이터 수집 및 영화 관련 핵심 로직**을 전담하였습니다.
+총 3명의 팀원이 역할을 분담하여 개발하였으며, 저는 **영화 데이터 수집 및 영화 관련 핵심 비즈니스 로직**을 전담하였습니다.
 
 ### 👤 **본인 (Me) - 영화 파트 총괄**
 > **"정확한 영화 정보 제공을 위한 데이터 수집 및 상세 서비스 구현"**
@@ -48,7 +56,7 @@
 
 MVC 패턴을 기반으로 관심사를 분리하여 설계하였습니다.
 
-```text
+~~~text
 src/main
 ├── java/com/jmk/movie
 │   ├── component       # 외부 API 통신 및 스케줄러 (MovieRunner, Movie.java)
@@ -66,3 +74,49 @@ src/main
         ├── movie       # 영화 관련 페이지 (list, detail)
         ├── theater     # 극장 관련 페이지
         └── user        # 로그인/회원가입 페이지
+~~~
+
+---
+
+## 🔥 Key Features (핵심 기능 상세)
+
+### 1. 영화 데이터 수집 파이프라인 (Data Pipeline)
+* 서버 실행 시 `ApplicationRunner`를 통해 자동으로 최신 박스오피스 데이터를 갱신합니다.
+* `KOBIS API`에서 순위 정보를 가져오고, `KMDB API`에서 포스터를 검색하여 DB에 병합(Merge)합니다.
+* **검색 정확도 향상:** 단순 제목 매칭 시 발생하는 오류를 방지하기 위해 `제목(공백제거) + 감독명` 조합으로 검색 알고리즘을 최적화하였습니다.
+
+### 2. 영화 상세 정보 및 커뮤니티
+* **영화 상세:** 줄거리, 감독/배우 정보, 관람 등급 등을 직관적으로 제공.
+* **관람평:** 로그인한 유저만 작성 가능하며, 별점 시스템과 연동됩니다.
+* **좋아요:** 영화에 대한 선호도를 표시하고 마이페이지에서 확인 가능하도록 설계.
+
+---
+
+## 💾 Database (ERD)
+
+주요 테이블 구조는 다음과 같습니다. (MariaDB)
+
+* `users`: 회원 정보 관리
+* `movies`: 영화 상세 정보 (코드, 제목, 감독, 포스터 등)
+* `boxOffice`: 일별 박스오피스 순위 정보
+* `reviews`: 유저가 작성한 영화 리뷰
+* `theaters`: 극장 정보
+
+---
+
+## 🚀 How to Run
+
+1. **Clone the repository**
+   ~~~bash
+   git clone [Repository URL]
+   ~~~
+2. **Database Setup**
+   - MariaDB 설치 및 스키마 생성 (`mega`)
+   - `application.properties` 내 DB 정보 수정
+3. **Build & Run**
+   - IntelliJ IDEA 또는 Maven을 사용하여 프로젝트 빌드 및 실행
+   - `MovieRunner`가 자동으로 실행되어 초기 데이터를 수집합니다.
+4. **Access**
+   - `http://localhost:8080` 접속
+
+---
